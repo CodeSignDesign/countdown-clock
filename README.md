@@ -1,2 +1,3 @@
-# Countdown Clock 
-This Countdown Clock is made in JavaScript.  
+# Clock and Countdown Timer
+These Clocks and Countdown Timer are made in JavaScript.  
+

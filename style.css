@@ -6,46 +6,109 @@ body {
 	font-weight: bold;
 }
 
+/* body{
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} 
+*/
+
 h1 {
 	color:#369;
 	font-weight: bold;
 	font-size: 50px;
-	margin: 135px 0px 20px;
+	margin: 35px 0px 20px;
 }
 
-#clockdiv {
+/* Up Clock */
+.now-time {
+	padding: 30px;
+	border-radius: 7px;
+	background:#1f5a56;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+}
+
+.now-time div {
 	font-family: sans-serif;
 	color: #fff;
 	display: inline-block;
 	font-weight: 100;
 	text-align: center;
-	font-size: 55px;
+	font-size: 2rem;
 }
 
-#clockdiv > div{
-	padding: 50px;
-	border-radius: 7px;
-	background:#1f5a56;
-	display: inline-block;
+h4 {
+	color: #fff;
+	font-size: 1.2em;
 }
 
-#clockdiv div > span{
-	padding: 65px;
-	border-radius: 3px;
-	background: #000;
-	display: inline-block;
+/* Down Clock */
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+} */
+
+
+.clock-container{
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    font-size: 3.75em;
+    margin-left: 0.2em;
+    border-radius: 0.1em;
+    padding: 0.2em 0;
+    justify-content: center;
+    align-items: center;
+	width: 50%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.smalltext{
-	padding-top: 5px;
-	font-size: 25px;
+.clock-container span{
+    width: 120px;
+    display: inline-block;
+    text-align: center;
 }
 
+.hours{
+    color: #ff0000;
+}
 
+.minutes{
+    color: #00ff00;
+}
 
+.seconds{
+    color: #0000ff;
+}
 
+@keyframes neon-glow{
+    0%{
+        box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+    }
+    100%{
+        box-shadow: 0 0 20px #ffffff, 0 0 10px #ffffff;
+    }
+}
 
+.date-container{
+    padding: 10px;
+    background-color: #2784e0;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+	width: 50%;
+    box-sizing: border-box;
+}
 
-
-
-
+.date-container span{
+    font-size: 2.5em;
+}

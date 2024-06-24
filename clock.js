@@ -1,40 +1,72 @@
-function getTimeRemaining(endTime) {
-	var t = Date.parse(endTime) - Date.parse(new Date());
-	var seconds = Math.floor((t / 1000) % 60);
-	var minutes = Math.floor((t / 1000 / 60) % 60);
-	var hours = Math.floor((t * (1000 * 60 * 60)) % 24);
-	var days = Math.floor(t * (1000 * 60 * 60 * 24));
-return {
-	'total': t,
-	'days': days,
-	'hours': hours,
-	'minutes': minutes,
-	'seconds': seconds
-};
+// Current Time Up
+
+let time = document.getElementById("current-time");
+
+setInterval(() =>{
+	let d= new Date();
+	time.innerHTML = d.toLocaleTimeString();
+}, 1000);
+
+// Current Time & Date Down
+
+let dateContainer = document.querySelector(".date-container");
+let hoursContainer = document.querySelector(".hours");
+let minutesContainer = document.querySelector(".minutes");
+let secondsContainer = document.querySelector(".seconds");
+
+const weekdays =[
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wendesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+];
+
+const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
+function formatTime(time){
+    return time < 10 ? "0" + time : time;  //  0 : 45 : 10  -> 00 : 45 : 10 
 }
-function initilizeClock(id, endTime) {
-	var clock = document.getElementById(id);
-	var daysSpan = clock.querySelector('.days');
-	var hoursSpan = clock.querySelector('.hours');
-	var minutesSpan = clock.querySelector('.minutes');
-	var secondsSpan = clock.querySelector('.seconds');
 
-function updateClock() {
-	var t = getTimeRemaining(endTime);
+function updateClock(){
 
-	daysSpan.innerHTML = t.days;
-	hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-	minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-	secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-	if (t.total <= 0) {
-		clearInterval(timeinterval);
-	}
+    const today = new Date();
+   // console.log(today);
+    let date = today.getDate();
+   // console.log(date)
+    let day = weekdays[today.getDay()];
+    let month = monthNames[today.getMonth()];
+
+    // console.log(day,month)
+    // console.log(today.getDay(),today.getMonth());
+
+    let hours = formatTime(today.getHours());
+    let minutes = formatTime(today.getMinutes());
+    let seconds = formatTime(today.getSeconds());
+
+	dateContainer.innerHTML = ` <p>${day}</p><p><span>${date}</span></p><p>${month}</p>`;   
+
+	hoursContainer.textContent = hours + ":";
+	minutesContainer.textContent = minutes + ":";
+	secondsContainer.textContent = seconds;
 }
 
-updateClock();
-var timeinterval = setInterval(updateClock, 1000);
+setInterval(updateClock,1000);
 
-var deadline = new Date(Date.parse(new Date()) + 7 * 24 * 60 * 60 * 1000);
-initilizeClock('clockdiv', deadline);
-}
+
